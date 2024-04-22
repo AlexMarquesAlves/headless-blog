@@ -8,36 +8,19 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.9.0'
+          node-version: '20.12.0'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
-
-      - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
-        with:
-          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait-for-success: true
-
-      # - name: Deploy to prod url
-      #   # main is the branch name where new code is pushed
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: akhileshns/heroku-deploy@v3.12.12
-      #   with:
-      #     heroku_email: ${{ secrets.HEROKU_EMAIL }}
-      #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #     heroku_app_name: 'nextjs14-demo'
-      # build_dir: 'your-build-directory' # Change this to your build directory if different from the root
