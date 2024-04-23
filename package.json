@@ -15,8 +15,8 @@
     "cy:headless": "npx cypress run --browser electron",
     "cy:headless:mobile": "npx cypress run --browser electron --config viewportWidth=410 viewportHeight=860",
     "lint": "next lint",
-    "eslint": "eslint src --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",
-    "eslint:fix": "eslint src --ext ts,tsx,js,jsx --fix",
+    "eslint": "eslint \"src/**/*.{ts,tsx,js,jsx,css,html}\" --report-unused-disable-directives --max-warnings 0",
+    "eslint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx,css,html}\" --fix",
     "format": "prettier \"src/**/*.{ts,tsx,js,jsx,css,html}\" --write",
     "check": "prettier \"src/**/*.{ts,tsx,js,jsx,css,html}\" --check",
     "lint-staged": "lint-staged",
@@ -56,12 +56,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "pnpm run lint && pnpm run format"
+      "pre-push": "pnpm run eslint && pnpm run format"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [
-      "pnpm run lint",
+      "pnpm run eslint",
       "pnpm run format"
     ]
   },
