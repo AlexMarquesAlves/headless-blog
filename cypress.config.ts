@@ -6,15 +6,23 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    // baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3000',
     env: {
       hideCredentials: true,
       requestMode: true,
     },
     experimentalRunAllSpecs: true,
   },
+
   fixturesFolder: false,
   video: true,
   viewportWidth: 1280,
   viewportHeight: 880,
+
+  component: {
+    devServer: {
+      framework: 'next',
+      bundler: 'webpack',
+    },
+  },
 })
