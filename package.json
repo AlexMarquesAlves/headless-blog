@@ -3,20 +3,26 @@
   "version": "0.1.0",
   "private": false,
   "engines": {
-    "node": "v20.12.0",
-    "pnpm": "9.0.5"
+    "node": "v20.12.x"
   },
   "scripts": {
     "commit": "cz",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cy:web": "npx cypress open",
+    "cy:mobile": "npx cypress open --config viewportWidth=410 viewportHeight=860",
+    "cy:headless": "npx cypress run --browser electron",
+    "cy:headless:mobile": "npx cypress run --browser electron --config viewportWidth=410 viewportHeight=860",
     "lint": "next lint",
     "eslint": "eslint src --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",
     "eslint:fix": "eslint src --ext ts,tsx,js,jsx --fix",
     "format": "prettier \"src/**/*.{ts,tsx,js,jsx,css,html}\" --write",
     "check": "prettier \"src/**/*.{ts,tsx,js,jsx,css,html}\" --check",
-    "prepare": "husky install"
+    "lint-staged": "lint-staged",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install",
+    "postinstall": "npm run prepare"
   },
   "dependencies": {
     "next": "14.2.1",
@@ -29,6 +35,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cypress": "^13.8.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
@@ -44,13 +51,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run eslint && npm run format"
+      "pre-push": "pnpm run lint && pnpm run format"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [
-      "npm run eslint",
-      "npm run format"
+      "pnpm run lint",
+      "pnpm run format"
     ]
   },
   "config": {
