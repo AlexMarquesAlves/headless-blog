@@ -10,6 +10,7 @@
     "commitlint",
     "esnext",
     "isodate",
+    "nextjs",
     "rehype",
     "tailwindcss",
     "velite"
