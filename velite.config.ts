@@ -35,7 +35,9 @@ export default defineConfig({
     name: '[name]-[hash:6].[ext]',
     clean: true,
   },
-  collections: {
-    posts,
+  collections: { posts },
+  mdx: {
+    rehypePlugins: [],
+    remarkPlugins: [],
   },
 })
