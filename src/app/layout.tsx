@@ -1,3 +1,4 @@
+import { SiteHeader } from '@/components/SiteHeader'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -7,7 +8,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Headless Blog App',
+  title: 'Syntax Symphony',
+  description: 'The Melodious Journey of Coding',
 }
 
 export default function RootLayout({
@@ -23,7 +25,10 @@ export default function RootLayout({
           inter.variable,
         )}
       >
-        {children}
+        <div className="flex relative min-h-dvh flex-col bg-background">
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+        </div>
       </body>
     </html>
   )
