@@ -3,6 +3,7 @@
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ReactNode } from 'react'
 import { Icons } from '../Icons'
 
@@ -11,6 +12,8 @@ interface MainNavProps {
 }
 
 export function MainNav({ children }: MainNavProps) {
+  const pathname = usePathname()
+
   return (
     <>
       <nav className="flex items-center space-x-4 lg:space-x-6">
@@ -19,7 +22,15 @@ export function MainNav({ children }: MainNavProps) {
           <span className="font-bold">{siteConfig.name}</span>
         </Link>
 
-        <Link href={`/blog`} className={cn()}></Link>
+        <Link
+          href={`/blog`}
+          className={cn(
+            'text-sm font-medium transition-colors hover:text-primary',
+            pathname === '/blog' ? 'text-foreground' : 'text-foreground/60',
+          )}
+        >
+          Blog
+        </Link>
       </nav>
       {children}
     </>
