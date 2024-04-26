@@ -1,5 +1,3 @@
-export type SiteConfig = typeof siteConfig
-
 export const siteConfig = {
   name: 'Syntax Symphony',
   url: 'http://example.com',
@@ -15,3 +13,5 @@ export const siteConfig = {
     email: 'mailto:akiratoryama001@gmail.com',
   },
 }
+
+export type SiteConfig = typeof siteConfig

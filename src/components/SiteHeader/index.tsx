@@ -10,7 +10,11 @@ export function SiteHeader() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="flex flex-1 items-center justify-end space-x-2">
           <nav className="flex items-center">
-            <Link href={siteConfig.links.github} target="_blank">
+            <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noreferrer"
+            >
               <div
                 className={cn(
                   buttonVariants({ variant: 'ghost' }),
@@ -18,6 +22,7 @@ export function SiteHeader() {
                 )}
               >
                 <Icons.gitHub className="h-4 w-4" />
+                <span className="sr-only">GitHub</span>
               </div>
             </Link>
           </nav>
