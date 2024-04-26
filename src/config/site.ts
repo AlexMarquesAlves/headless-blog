@@ -1,3 +1,5 @@
+export type SiteConfig = typeof siteConfig
+
 export const siteConfig = {
   name: 'Syntax Symphony',
   url: 'http://example.com',
