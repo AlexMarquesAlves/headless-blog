@@ -43,22 +43,6 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-
-            <Link
-              href={siteConfig.links.personalSite}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({ variant: 'ghost' }),
-                  'w-10 px-0',
-                )}
-              >
-                <Icons.logo className="h-4 w-4" />
-                <span className="sr-only">Personal Site</span>
-              </div>
-            </Link>
           </nav>
         </div>
       </div>

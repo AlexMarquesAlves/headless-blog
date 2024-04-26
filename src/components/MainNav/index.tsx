@@ -1,6 +1,7 @@
 'use client'
 
 import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { Icons } from '../Icons'
@@ -17,6 +18,8 @@ export function MainNav({ children }: MainNavProps) {
           <Icons.logo className="h-6 w-6" />
           <span className="font-bold">{siteConfig.name}</span>
         </Link>
+
+        <Link href={`/blog`} className={cn()}></Link>
       </nav>
       {children}
     </>
