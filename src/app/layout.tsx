@@ -7,7 +7,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Headless Blog App',
+  title: 'Syntax Symphony',
+  description: 'The Melodious Journey of Coding',
 }
 
 export default function RootLayout({
