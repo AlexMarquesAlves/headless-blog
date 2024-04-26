@@ -31,6 +31,16 @@ export function MainNav({ children }: MainNavProps) {
         >
           Blog
         </Link>
+
+        <Link
+          href={`/about`}
+          className={cn(
+            'text-sm font-medium transition-colors hover:text-primary',
+            pathname === '/about' ? 'text-foreground' : 'text-foreground/60',
+          )}
+        >
+          About
+        </Link>
       </nav>
       {children}
     </>
