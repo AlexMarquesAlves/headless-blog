@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 import { Icons } from '../Icons'
 import { buttonVariants } from '../ui/button'
 
