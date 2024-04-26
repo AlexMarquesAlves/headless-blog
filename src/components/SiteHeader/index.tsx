@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 interface SiteHeaderProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export function SiteHeader({ children }: SiteHeaderProps) {

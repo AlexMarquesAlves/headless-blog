@@ -1,3 +1,4 @@
+import { SiteHeader } from '@/components/SiteHeader'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -25,6 +26,7 @@ export default function RootLayout({
         )}
       >
         <div className="flex relative min-h-dvh flex-col bg-background">
+          <SiteHeader />
           <main className="flex-1">{children}</main>
         </div>
       </body>
